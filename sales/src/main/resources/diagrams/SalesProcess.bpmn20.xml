@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="SalesProcess" name="SalesProcess">
+    <documentation>Place documentation for the 'SalesProcess' process here.</documentation>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <serviceTask id="mailtask1" name="Mail Task" activiti:type="mail">
+      <extensionElements>
+        <activiti:field name="to" expression="muyq@fyg.cn"></activiti:field>
+        <activiti:field name="from" expression="muyq@fyg.cn"></activiti:field>
+        <activiti:field name="subject" expression="send a mail"></activiti:field>
+        <activiti:field name="html">
+          <activiti:expression><![CDATA[test]]></activiti:expression>
+        </activiti:field>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="flow1" name="" sourceRef="mailtask1" targetRef="endevent1"></sequenceFlow>
+    <sequenceFlow id="flow2" name="" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
+    <userTask id="usertask1" name="User Task" activiti:candidateUsers="mouge" activiti:formKey="here">
+      <documentation>abcdefg</documentation>
+    </userTask>
+    <sequenceFlow id="flow3" name="" sourceRef="usertask1" targetRef="mailtask1"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_SalesProcess">
+    <bpmndi:BPMNPlane bpmnElement="SalesProcess" id="BPMNPlane_SalesProcess">
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35" width="35" x="520" y="200"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35" width="35" x="80" y="200"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="mailtask1" id="BPMNShape_mailtask1">
+        <omgdc:Bounds height="55" width="105" x="360" y="190"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
+        <omgdc:Bounds height="55" width="105" x="220" y="190"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="465" y="217"></omgdi:waypoint>
+        <omgdi:waypoint x="520" y="217"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="115" y="217"></omgdi:waypoint>
+        <omgdi:waypoint x="220" y="217"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="325" y="217"></omgdi:waypoint>
+        <omgdi:waypoint x="360" y="217"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
